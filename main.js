@@ -31,7 +31,10 @@ function game() {
     for (i = 0; i < 5; i++) { 
         const computerSelection = getComputerChoice(); 
         let playerSelection = prompt("Choose rock, paper or scissors");
+        console.log("My choice = " + playerSelection);
+        console.log("Opponent's choice = " + computerSelection);
         console.log(playRound(playerSelection, computerSelection));
+
     }
     if (myPoints > pcPoints) {
         result = "You won the ROCK PAPER SCISSORS!";
