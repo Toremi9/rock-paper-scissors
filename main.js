@@ -11,9 +11,13 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     let choice = playerSelection.toLowerCase();
-    if (choice === "rock" && computerSelection === "paper" || choice === "paper" && computerSelection === "scissors" || choice === "scissors" && computerSelection === "rock"){
+    if (choice === "rock" && computerSelection === "paper" || 
+        choice === "paper" && computerSelection === "scissors" || 
+        choice === "scissors" && computerSelection === "rock") {
         pcPoints += 1;
-    } else if (choice === "scissors" && computerSelection === "paper" || choice === "rock" && computerSelection === "scissors" || choice === "paper" && computerSelection === "rock"){
+    } else if (choice === "scissors" && computerSelection === "paper" || 
+        choice === "rock" && computerSelection === "scissors" || 
+        choice === "paper" && computerSelection === "rock") {
         myPoints += 1;
     } 
 }
