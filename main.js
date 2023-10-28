@@ -111,8 +111,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log("My choice = " + playerSelection);
-    console.log("Opponent's choice = " + computerSelection);
+        console.log("My choice = " + playerSelection);
+        console.log("Opponent's choice = " + computerSelection);
     if (playerSelection === "Rock" && computerSelection === "paper" || 
         playerSelection === "Paper" && computerSelection === "scissors" || 
         playerSelection === "Scissors" && computerSelection === "rock") {
@@ -122,7 +122,6 @@ function playRound(playerSelection, computerSelection) {
         playerSelection === "Paper" && computerSelection === "rock") {
         myPoints += 1;
     } 
-    showPoints();
 }
 
 
@@ -147,26 +146,21 @@ function updateScore() {
 //     showResult();
 // }
 
-function showChoice(playerSelection, computerSelection) {
-    console.log("My choice = " + playerSelection);
-    console.log("Opponent's choice = " + computerSelection);
-}
+// function showChoice(playerSelection, computerSelection) {
+//     console.log("My choice = " + playerSelection);
+//     console.log("Opponent's choice = " + computerSelection);
+// }
 
-function showPoints() { 
-    console.log("My points = " + myPoints);
-    console.log("PC points = " + pcPoints);
-}
+// function showResult() {
+//     let result;
+//     if (myPoints > pcPoints) {
+//         result = "You won the ROCK PAPER SCISSORS!";}
+//     else if (myPoints < pcPoints) {
+//         result = "You lost ROCK PAPER SCISSORS!";}
+//     else if (myPoints == pcPoints){
+//         result = "It's a draw!";}
 
-function showResult() {
-    let result;
-    if (myPoints > pcPoints) {
-        result = "You won the ROCK PAPER SCISSORS!";}
-    else if (myPoints < pcPoints) {
-        result = "You lost ROCK PAPER SCISSORS!";}
-    else if (myPoints == pcPoints){
-        result = "It's a draw!";}
-
-    console.log(result);
-    return result;
-}
+//     console.log(result);
+//     return result;
+// }
 
