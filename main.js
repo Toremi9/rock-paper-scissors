@@ -43,9 +43,9 @@ function createButton(buttonValue, imgSource){
     return resultButton;
 };
 
-const rockBtn = createButton("Rock", "rock.png");
-const paperBtn = createButton("Paper", "paper.png");
-const scissorsBtn = createButton("Scissors", "scissors.png");
+const rockBtn = createButton("Rock", "resources/rock.png");
+const paperBtn = createButton("Paper", "resources/paper.png");
+const scissorsBtn = createButton("Scissors", "resources/scissors.png");
 threebuttons.appendChild(rockBtn);
 threebuttons.appendChild(paperBtn);
 threebuttons.appendChild(scissorsBtn);
