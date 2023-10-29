@@ -1,24 +1,24 @@
 const choice = ["Rock", "Paper", "Scissors"];
 let myPoints = 0;
 let pcPoints = 0;
-// let playerSelection = '';
-// let computerSelection = '';
+let playerSelection = '';
+let computerSelection = '';
 
 const main = document.querySelector('#Main');
 
-main.setAttribute('style', 'allign-items: center; justify-content: space-around;');
+main.setAttribute('style', 'allign-items: center; justify-content: space-around; padding-top: 300px;');
 
 const threebuttons = document.createElement('div');
-threebuttons.setAttribute('style', 'display: flex; allign-items: center; justify-content: space-around; padding-top: 300px;');
+threebuttons.setAttribute('style', 'display: flex; allign-items: center; justify-content: space-around;');
 main.appendChild(threebuttons);
 
 const score = document.createElement('div');
-score.setAttribute('style', 'display: flex; allign-items: center; justify-content: center; padding-top: 50px;')
+score.setAttribute('style', 'display: flex; allign-items: center; justify-content: center; padding-top: 50px;');
 main.appendChild(score);
 
 var myScore = document.createElement('div');
 myScore.textContent = `${myPoints} : ${pcPoints}`;
-myScore.setAttribute('style', 'font-size: 50px;')
+myScore.setAttribute('style', 'font-size: 50px;');
 score.appendChild(myScore);
 
 let goodresult = document.createElement('div');
@@ -29,60 +29,37 @@ let badresult = document.createElement('div');
 badresult.textContent = "YOU LOST! BETTER LUCK NEXT TIME...";
 badresult.setAttribute('style', 'font-size: 50px; margin-top: 20px; color: red; text-align: center;');
 
-const rockBtn = document.createElement('button');
-rockBtn.textContent = "Rock";
-rockBtn.innerHTML = '<img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296854_1280.png"; width = 90px; height = 90px;/>';
-rockBtn.setAttribute('style','width: 100px; height: 100px; background-color: white;');
-rockBtn.addEventListener('click', () => {
+function createButton(buttonValue, imgSource){
+    const resultButton = document.createElement('button');
+    resultButton.textContent = buttonValue;
+    resultButton.innerHTML = `<img src="${imgSource}"; width = 90px; height = 90px;/>`;
+    resultButton.setAttribute('style','width: 100px; height: 100px; background-color: white;');
+    resultButton.addEventListener('click', () => {
+        playerSelection = "Rock";
+        computerSelection = getComputerChoice();
+        game();
+    });
 
-    playerSelection = "Rock";
-    computerSelection = getComputerChoice();
+    return resultButton;
+};
 
-    game();
-});
+const rockBtn = createButton("Rock", "rock.png");
+const paperBtn = createButton("Paper", "paper.png");
+const scissorsBtn = createButton("Scissors", "scissors.png");
 threebuttons.appendChild(rockBtn);
-
-const paperBtn = document.createElement('button');
-paperBtn.textContent = "Paper";
-paperBtn.setAttribute('style','width: 100px; background-color: white;');
-paperBtn.innerHTML = '<img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296855_1280.png"; width = 90px; height = 90px; />';
-paperBtn.addEventListener('click', () => {
-
-    playerSelection = "Paper";
-    computerSelection = getComputerChoice();
-
-    game();
-});
 threebuttons.appendChild(paperBtn);
-
-const scissorsBtn = document.createElement('button');
-scissorsBtn.textContent = "Scissors";
-scissorsBtn.setAttribute('style','width: 100px; background-color: white;');
-scissorsBtn.innerHTML = '<img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296853_1280.png"; width = 90px; height = 90px; />';
-scissorsBtn.addEventListener('click', () => {
-
-    playerSelection = "Scissors";
-    computerSelection = getComputerChoice();
-
-    game();
-});
 threebuttons.appendChild(scissorsBtn);
 
-function game(playerSelection, computerSelection) {
+function game() {
     playRound();
 
-    if (myPoints === 5) {
-        rockBtn.remove();
-        paperBtn.remove();
-        scissorsBtn.remove();
-        main.appendChild(goodresult);
-    } else if (pcPoints === 5) {
-        rockBtn.remove();
-        paperBtn.remove();
-        scissorsBtn.remove();
-        main.appendChild(badresult);
-    }
+    if (myPoints === 5 || pcPoints === 5) {
+        rockBtn.style.display = "none";
+        paperBtn.style.display = "none";
+        scissorsBtn.style.display = "none";
 
+        main.appendChild(myPoints > pcPoints ? goodResult : badresult);
+    }
     updateScore();
 };
 
