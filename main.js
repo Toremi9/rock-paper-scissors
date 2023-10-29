@@ -31,7 +31,8 @@ badresult.setAttribute('style', 'font-size: 50px; margin-top: 20px; color: red; 
 
 const rockBtn = document.createElement('button');
 rockBtn.textContent = "Rock";
-rockBtn.setAttribute('style','width: 100px;');
+rockBtn.innerHTML = '<img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296854_1280.png"; width = 90px; height = 90px;/>';
+rockBtn.setAttribute('style','width: 100px; height: 100px; background-color: white;');
 rockBtn.addEventListener('click', () => {
 
     playerSelection = "Rock";
@@ -43,7 +44,8 @@ threebuttons.appendChild(rockBtn);
 
 const paperBtn = document.createElement('button');
 paperBtn.textContent = "Paper";
-paperBtn.setAttribute('style','width: 100px;');
+paperBtn.setAttribute('style','width: 100px; background-color: white;');
+paperBtn.innerHTML = '<img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296855_1280.png"; width = 90px; height = 90px; />';
 paperBtn.addEventListener('click', () => {
 
     playerSelection = "Paper";
@@ -55,7 +57,8 @@ threebuttons.appendChild(paperBtn);
 
 const scissorsBtn = document.createElement('button');
 scissorsBtn.textContent = "Scissors";
-scissorsBtn.setAttribute('style','width: 100px;');
+scissorsBtn.setAttribute('style','width: 100px; background-color: white;');
+scissorsBtn.innerHTML = '<img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296853_1280.png"; width = 90px; height = 90px; />';
 scissorsBtn.addEventListener('click', () => {
 
     playerSelection = "Scissors";
