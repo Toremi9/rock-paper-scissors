@@ -9,7 +9,7 @@ const main = document.querySelector('#Main');
 main.setAttribute('style', 'allign-items: center; justify-content: space-around; padding-top: 300px;');
 
 const threebuttons = document.createElement('div');
-threebuttons.setAttribute('style', 'display: flex; allign-items: center; justify-content: space-around;');
+threebuttons.setAttribute('style', 'display: flex; allign-items: center; justify-content: center; gap: 30px;');
 main.appendChild(threebuttons);
 
 const score = document.createElement('div');
@@ -21,13 +21,13 @@ myScore.textContent = `${myPoints} : ${pcPoints}`;
 myScore.setAttribute('style', 'font-size: 50px;');
 score.appendChild(myScore);
 
-let goodresult = document.createElement('div');
-goodresult.textContent = "CONGRATS! YOU WON!";
-goodresult.setAttribute('style', 'font-size: 50px; margin-top: 20px; color: green; text-align: center;');
+let goodResult = document.createElement('div');
+goodResult.textContent = "CONGRATS! YOU WON!";
+goodResult.setAttribute('style', 'font-size: 50px; margin-top: 20px; color: green; text-align: center;');
 
-let badresult = document.createElement('div');
-badresult.textContent = "YOU LOST! BETTER LUCK NEXT TIME...";
-badresult.setAttribute('style', 'font-size: 50px; margin-top: 20px; color: red; text-align: center;');
+let badResult = document.createElement('div');
+badResult.textContent = "YOU LOST! BETTER LUCK NEXT TIME...";
+badResult.setAttribute('style', 'font-size: 50px; margin-top: 20px; color: red; text-align: center;');
 
 function createButton(buttonValue, imgSource){
     const resultButton = document.createElement('button');
@@ -35,7 +35,7 @@ function createButton(buttonValue, imgSource){
     resultButton.innerHTML = `<img src="${imgSource}"; width = 90px; height = 90px;/>`;
     resultButton.setAttribute('style','width: 100px; height: 100px; background-color: white;');
     resultButton.addEventListener('click', () => {
-        playerSelection = "Rock";
+        playerSelection = buttonValue;
         computerSelection = getComputerChoice();
         game();
     });
@@ -52,13 +52,12 @@ threebuttons.appendChild(scissorsBtn);
 
 function game() {
     playRound();
-
     if (myPoints === 5 || pcPoints === 5) {
         rockBtn.style.display = "none";
         paperBtn.style.display = "none";
         scissorsBtn.style.display = "none";
 
-        main.appendChild(myPoints > pcPoints ? goodResult : badresult);
+        main.appendChild(myPoints > pcPoints ? goodResult : badResult);
     }
     updateScore();
 };
